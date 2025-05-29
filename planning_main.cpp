@@ -7,6 +7,5 @@ int main()
     Process proc;
     proc.planProcess();
     std::cout << "planning end." << std::endl;
-    std::cout << "the world!!!" << std::endl;
     return 0;
 }
