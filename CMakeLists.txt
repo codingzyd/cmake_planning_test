@@ -1,9 +1,28 @@
 cmake_minimum_required(VERSION 3.20.0)
 project(planning)
 set(CMAKE_CXX_STANDARD 17)
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
-aux_source_directory(. src_list)
-add_executable(
-    plannning_main
-    ${src_list}
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC_LIST)
+add_library(common
+SHARED
+${SRC_LIST}
+)
+
+target_include_directories(common
+PUBLIC
+${PROJECT_SOURCE_DIR}/include
+)
+
+
+add_executable(planning_main planning_main.cpp)
+
+target_include_directories(planning_main
+PUBLIC
+${PROJECT_SOURCE_DIR}/include
+)
+
+target_link_libraries(planning_main
+PUBLIC
+common
 )
