@@ -8,5 +8,6 @@ int main()
     proc.planProcess();
     std::cout << "planning end." << std::endl;
     std::cout << "hello world!!" << std::endl;
+    std::cout << "hello world!!" << std::endl;
     return 0;
 }
